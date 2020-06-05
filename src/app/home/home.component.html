@@ -1,0 +1,101 @@
+<ActionBar class="action-bar">
+  <Label class="action-bar-title" text="3 Days Weather Forecast"></Label>
+</ActionBar>
+<ScrollView orientation="vertical">
+  <StackLayout class="form">
+    <Label text="Panel 1" textAlignment="center" textWrap="true"></Label>
+    <TextField
+      class="input"
+      [(ngModel)]="city"
+      name="city"
+      hint="Enter city name"
+    ></TextField>
+    <Button (tap)="submit()" text="submit" class="btn btn-primary"></Button>
+   <Label style="text-align: center;margin-bottom: 10px;" *ngIf ="value" text="There is no data in this panel"></Label>
+    <ListView *ngIf="!value" height="450px" [items]="weather" class="list-group">
+      <ng-template let-forecast="item">
+        <GridLayout class="list-group-item" rows="auto, auto" columns="50, *">
+          <Image [src]="forecast.iconLink" rowSpan="2" row="0" col="0"></Image>
+          <Label
+            text="{{ forecast.highTemperature }}C / {{
+              forecast.highTemperature | fahrenheit
+            }}F"
+            row="0"
+            col="1"
+            class="p-x-5"
+          ></Label>
+          <Label
+            text="{{ forecast.utcTime | moment }}"
+            row="1"
+            col="1"
+            class="p-x-5"
+          ></Label>
+        </GridLayout>
+      </ng-template>
+    </ListView>
+
+    <Label text="Panel 2" textAlignment="center" textWrap="true"></Label>
+    <TextField
+      class="input"
+      [(ngModel)]="city2"
+      name="city2"
+      hint="Enter city name"
+    ></TextField>
+
+    <Button (tap)="submit1()" text="submit" class="btn btn-primary"></Button>
+    <Label style="text-align: center;margin-bottom: 10px;" *ngIf ="value1" text="There is no data in this panel"></Label>
+    <ListView *ngIf = "!value1" height="450px" [items]="weather1" class="list-group">
+      <ng-template let-forecast="item">
+        <GridLayout class="list-group-item" rows="auto, auto" columns="50, *">
+          <Image [src]="forecast.iconLink" rowSpan="2" row="0" col="0"></Image>
+          <Label
+            text="{{ forecast.highTemperature }}C / {{
+              forecast.highTemperature | fahrenheit
+            }}F"
+            row="0"
+            col="1"
+            class="p-x-5"
+          ></Label>
+          <Label
+            text="{{ forecast.utcTime | moment }}"
+            row="1"
+            col="1"
+            class="p-x-5"
+          ></Label>
+        </GridLayout>
+      </ng-template>
+    </ListView>
+
+    <Label text="Panel 3" textAlignment="center" textWrap="true"></Label>
+    <TextField
+      class="input"
+      [(ngModel)]="city3"
+      name="city3"
+      hint="Enter city name"
+    ></TextField>
+
+    <Button (tap)="submit2()" text="submit" class="btn btn-primary"></Button>
+    <Label style="text-align: center;margin-bottom: 10px;" *ngIf ="value2" text="There is no data in this panel"></Label>
+    <ListView *ngIf="!value2" height="450px" [items]="weather2" class="list-group">
+      <ng-template let-forecast="item">
+        <GridLayout class="list-group-item" rows="auto, auto" columns="50, *">
+          <Image [src]="forecast.iconLink" rowSpan="2" row="0" col="0"></Image>
+          <Label
+            text="{{ forecast.highTemperature }}C / {{
+              forecast.highTemperature | fahrenheit
+            }}F"
+            row="0"
+            col="1"
+            class="p-x-5"
+          ></Label>
+          <Label
+            text="{{ forecast.utcTime | moment }}"
+            row="1"
+            col="1"
+            class="p-x-5"
+          ></Label>
+        </GridLayout>
+      </ng-template>
+    </ListView>
+  </StackLayout>
+</ScrollView>
